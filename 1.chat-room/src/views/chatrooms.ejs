@@ -1,0 +1,30 @@
+<h2>Chatrooms</h2>
+
+<form action="/logout" method="GET">
+    <button type="submit" class="btn-link">
+        Logout
+    </button>
+</form>
+
+<main>
+    <ul>
+        <% data.forEach((chatroom) => { %>
+            <li>
+                <form action="<%=`/chatrooms/${chatroom._id}`%>" method="GET">
+                    <button type="submit" class="btn-link">
+                        <%= chatroom.chatroomName %>
+                    </button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+    <form action="/chatrooms" method="POST">
+        <div>
+          <label>Chatroom name</label>
+          <input name="chatroomName">
+        </div>
+        <div>
+          <button>Add chatroom</button>
+        </div>
+    </form>
+</main>
